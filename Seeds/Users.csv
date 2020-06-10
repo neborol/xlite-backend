@@ -1,0 +1,9 @@
+UserId,Username,PasswordHash,PasswordSalt,CodeNr,FirstName,LastName,UserEmail,Phone,City,Status,Subscriptions
+1,roland,Null,Null,123,SCEF-1234,Roland,Mazi1,Mazi1@example.com,647-455-123,Toronto,INACTIVE,NULL
+2,george,Null,Null,124,SCEF-1235,George,Mazi2,Mazi2@example.com,647-455-124,Toronto,INACTIVE,NULL
+3,sampson,Null,Null,125,SCEF-1236,Suzan,Mazi3,Mazi3@example.com,647-455-125,Toronto,INACTIVE,NULL
+4,gideon,Null,Null,126,SCEF-1237,Samuel,Mazi4,Mazi4@example.com,647-455-126,Toronto,INACTIVE,NULL
+5,mary,Null,Null,127,SCEF-1238,Divine,Mazi5,Mazi5@example.com,647-455-127,Toronto,INACTIVE,NULL
+6,evelyne1,Null,Null,128,SCEF-1239,Mary,Mazi6,Mazi6@example.com,647-455-128,Toronto,INACTIVE,NULL
+7,evelyne2,Null,Null,129,SCEF-1240,Eva,Mazi7,Mazi7@example.com,647-455-129,Toronto,INACTIVE,NULL
+8,evelyne3,Null,Null,130,SCEF-1241,Gidion,Mazi8,Mazi8@example.com,647-455-130,Toronto,INACTIVE,NULL

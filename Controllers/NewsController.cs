@@ -13,8 +13,8 @@ namespace EliteForce.Controllers
     [ApiController]
     public class NewsController : ControllerBase
     {
-        INewsRepository _newsRepo;
-        IConfirmResp _confirmResp;
+        private readonly INewsRepository _newsRepo;
+        private readonly IConfirmResp _confirmResp;
         public NewsController(INewsRepository newsRepo, IConfirmResp confirmResp)
         {
             _newsRepo = newsRepo;

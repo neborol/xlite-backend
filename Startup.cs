@@ -185,6 +185,7 @@ namespace EliteForce
             services.AddTransient<IMailService, SendGridMailService>();
             services.AddScoped<IFaqRepository, FaqRepository>();
             services.AddScoped<INewsRepository, NewsRepository>();
+            services.AddScoped<IVideosRepository, VideosRepository>();
             // Tell what kind of authentication we gonna be using
 
             var mailKitOptions = _configuration.GetSection("Email").Get<MailKitOptions>();

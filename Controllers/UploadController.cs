@@ -61,13 +61,13 @@ namespace EliteForce.Controllers
 
 
         // POST: api/Upload
-        [HttpPost("imageUpload"), DisableRequestSizeLimit]
-        public IActionResult Upload()
+        [HttpPost("imageUpload/{topFolder}/{innerFolder}"), DisableRequestSizeLimit]
+        public IActionResult Upload(string topFolder, string innerFolder)
         {
             try
             {
                 var file = Request.Form.Files[0];
-                var folderName = Path.Combine("Resources", "NewsAssets", "Images"); // Individual paths separated by comas
+                var folderName = Path.Combine("Resources", topFolder, innerFolder); // Individual paths separated by comas
                 var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
 
                 if (file.Length > 0)

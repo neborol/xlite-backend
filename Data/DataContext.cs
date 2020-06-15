@@ -21,6 +21,7 @@ namespace EliteForce.Data
         // public DbSet<Member> Members { get; set; }
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<MissionPhoto> MissionPhotos { get; set; }
+        public DbSet<MissionVideo> MissionVideos { get; set; }
         public DbSet<Code> Codes { get; set; }
 
         public DbSet<Faq> FaqItems { get; set; }

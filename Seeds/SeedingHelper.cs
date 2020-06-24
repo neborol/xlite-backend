@@ -8,38 +8,7 @@ using System.Threading.Tasks;
 namespace EliteForce.Seeds
 {
     public class SeedingHelper
-    {
-
-        public static List<Member> CsvToMember(string csvFile)
-        {
-            FileStream fs = new FileStream(csvFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            StreamReader sr = new StreamReader(fs);
-            List<String> lst = new List<string>();
-            while (!sr.EndOfStream) lst.Add(sr.ReadLine());
-            string[] fields = lst[0].Split(new char[] { ',' });
-            var res = new List<Member>();
-
-            for (int i = 1; i < lst.Count; i++)
-            {
-                fields = lst[i].Split(',');
-                res.Add(new Member
-                {
-                    MemberId = Convert.ToInt32(fields[0]),
-                    CodeNr = fields[1],
-                    FirstName = fields[2],
-                    LastName = fields[3],
-                    Email = fields[4],
-                    Phone = fields[5],
-                    City = fields[6],
-                    Status = fields[7],
-                    Subscriptions = null
-                });
-            }
-
-            return res;
-        }
-
-        
+    {        
         public static List<Subscription> CsvToSubscription(string csvFile)
         {
             FileStream fs = new FileStream(csvFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
@@ -61,7 +30,7 @@ namespace EliteForce.Seeds
                     SubscriptionId = Convert.ToInt32(fields[0]),
                     Name = fields[1],
                     Comment = fields[2],
-                    DateEntered = fields[3],
+                    DateEntered = DateTime.UtcNow,
                     Amount = Convert.ToInt32(fields[4]),
                     UserId = fields[5]
                 });
@@ -100,8 +69,7 @@ namespace EliteForce.Seeds
                     Email = fields[4],
                     PhoneNumber = fields[5],
                     City = fields[6],
-                    Status = fields[7],
-                    Subscriptions = new List<Subscription>()
+                    Status = fields[7]
                 });
             }
 

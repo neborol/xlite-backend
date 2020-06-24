@@ -17,5 +17,6 @@ namespace EliteForce.Entities
         public string VideoPath { get; set; }
         public DateTime DateCreated { get; set; }
         public int Rating { get; set; }
+        public int RatingsCount { get; set; }
     }
 }

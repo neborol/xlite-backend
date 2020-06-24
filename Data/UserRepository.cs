@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -25,20 +26,44 @@ namespace EliteForce.Data
             _userManager = userManager;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
-        public void Add<T>(T entity) where T : class
+        public void Add<User>(User entity)
         {
             _context.Add(entity);
         }
 
-        public void Delete<T>(T entity) where T : class
+        public async Task<int> DeleteUser(string email)
         {
-            _context.Remove(entity);
+            var user2Delete = _userManager.Users.FirstOrDefault(u => u.Email == email);
+            if (user2Delete == null)
+            {
+                throw new Exception("No such user found");
+            }
+            _context.Users.Remove(user2Delete);
+            var num = await _context.SaveChangesAsync();
+
+            return num;
         }
 
         public async Task<IEnumerable<User>> GetUsers()
         {
             var users = await _userManager.Users.ToListAsync();
             return users;
+        }
+
+        public async Task<IdentityResult> UpdateUserStatusActive(string email)
+        {
+            var user2Update = _userManager.Users.FirstOrDefault(u => u.Email == email);
+            user2Update.Status = "ACTIVE";
+            var identityRes = await _userManager.UpdateAsync(user2Update);
+            return identityRes;
+        }
+
+        public async Task<IdentityResult> UpdateUserStatusInActive(string email)
+        {
+            var user2Update = _userManager.Users.FirstOrDefault(u => u.Email == email);
+            user2Update.Status = "INACTIVE";
+            var identityRes = await _userManager.UpdateAsync(user2Update);
+            return identityRes;
         }
 
         public async Task<IEnumerable<User>> GetUserssuper()

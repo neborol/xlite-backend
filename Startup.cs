@@ -186,6 +186,9 @@ namespace EliteForce
             services.AddScoped<IFaqRepository, FaqRepository>();
             services.AddScoped<INewsRepository, NewsRepository>();
             services.AddScoped<IVideosRepository, VideosRepository>();
+            services.AddScoped<IMissionPhotosRepository, MissionPhotosRepository>();
+            services.AddScoped<IContributionsRepository, ContributionsRepository>();
+            services.AddScoped<IFinancesRepository, FinancesRepository>();
             // Tell what kind of authentication we gonna be using
 
             var mailKitOptions = _configuration.GetSection("Email").Get<MailKitOptions>();

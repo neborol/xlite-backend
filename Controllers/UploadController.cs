@@ -14,20 +14,6 @@ namespace EliteForce.Controllers
     [ApiController]
     public class UploadController : ControllerBase
     {
-        // GET: api/Upload
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/Upload/5
-        /*     [HttpGet("{id}", Name = "Get")]
-               public string Get(int id)
-               {
-                   return "value";
-               }
-       */
 
 
         //[HttpPost]
@@ -61,7 +47,7 @@ namespace EliteForce.Controllers
 
 
         // POST: api/Upload
-        [HttpPost("imageUpload/{topFolder}/{innerFolder}"), DisableRequestSizeLimit]
+        [HttpPost("fileUpload/{topFolder}/{innerFolder}"), DisableRequestSizeLimit]
         public IActionResult Upload(string topFolder, string innerFolder)
         {
             try

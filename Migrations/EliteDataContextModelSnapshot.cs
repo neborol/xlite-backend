@@ -19,6 +19,54 @@ namespace EliteForce.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("EliteForce.Entities.About", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statement1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statement2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statement3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AboutStatements");
+                });
+
+            modelBuilder.Entity("EliteForce.Entities.Activity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Event")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Activities");
+                });
+
             modelBuilder.Entity("EliteForce.Entities.Code", b =>
                 {
                     b.Property<int>("CodeId")
@@ -48,6 +96,30 @@ namespace EliteForce.Migrations
                     b.HasKey("FaqId");
 
                     b.ToTable("FaqItems");
+                });
+
+            modelBuilder.Entity("EliteForce.Entities.Home", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ImagePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statement1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statement2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Statement3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("HomeStatements");
                 });
 
             modelBuilder.Entity("EliteForce.Entities.MissionPhoto", b =>
@@ -100,6 +172,9 @@ namespace EliteForce.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RatingsCount")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -171,18 +246,25 @@ namespace EliteForce.Migrations
                     b.Property<string>("Comment")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DateEntered")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateEntered")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Total")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("UptoDate")
+                        .HasColumnType("bit");
+
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Year")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("SubscriptionId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Subscriptions");
                 });
@@ -204,6 +286,9 @@ namespace EliteForce.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateJoined")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
@@ -397,13 +482,6 @@ namespace EliteForce.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("EliteForce.Entities.Subscription", b =>
-                {
-                    b.HasOne("EliteForce.Entities.User", "User")
-                        .WithMany("Subscriptions")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

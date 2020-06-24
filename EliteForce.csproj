@@ -56,6 +56,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Resources\MissionVideos\Images\" />
+    <Folder Include="Resources\MissionVideos\Videos\" />
+    <Folder Include="Resources\MissionPhotos\" />
     <Folder Include="Resources\NewsAssets\Images\" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
 ﻿using EliteForce.Dtos;
+using EliteForce.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,9 @@ namespace EliteForce.Data
 {
     public interface IVideosRepository
     {
-        Task<int> AddAVideoItem(MissionVideoDto videoDataObj);
+        Task<int> AddAVideoItem(MissionVideoPostDto videoDataObj);
+        Task<List<MissionVideo>> GetVideos();
+        Task<List<MissionVideo>> GetCategorizedVideos(string category);
+        Task<bool> RateVideo(RatingsDto ratingsObject);
     }
 }

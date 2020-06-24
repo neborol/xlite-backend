@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,6 +8,7 @@ namespace EliteForce.Entities
 {
     public class News
     {
+        [Key]
         public int NewsId { get; set; }
         public string NewsTitle { get; set; }
         public string NewsSummary { get; set; }

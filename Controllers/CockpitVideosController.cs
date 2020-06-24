@@ -17,13 +17,14 @@ namespace EliteForce.Controllers
     {
         private readonly IVideosRepository _videoRepo;
         private readonly IConfirmResp _confirm;
-        public CockpitVideosController(IVideosRepository videoRepo, IConfirmResp conf)
+        public CockpitVideosController(IVideosRepository videoRepo, IConfirmResp confirm)
         {
             _videoRepo = videoRepo;
+            _confirm = confirm;
         }
 
         [HttpPost("addAVideoItem")]
-        public async Task<ActionResult> AddAVideoItem(MissionVideoDto videoData)
+        public async Task<ActionResult> AddAVideoItem(MissionVideoPostDto videoData)
         {
             if (!ModelState.IsValid)
             {

@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using AutoMapper;
+using EliteForce.AppWideHelpers;
 using EliteForce.Data;
 using EliteForce.Dtos;
 using EliteForce.Entities;
 using Microsoft.AspNetCore.Hosting; // .IWebHostEnvironment;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 
 namespace EliteForce.Controllers
 {
@@ -19,21 +22,26 @@ namespace EliteForce.Controllers
     {
         private readonly IWebHostEnvironment _environment;
         private readonly IImageRepository _imageRepo;
+        private readonly IMissionPhotosRepository _missionImageRepo;
         private readonly IMapper _mapper;
+        private readonly IConfirmResp _confirmResp;
         private readonly int MAX_BYTES = 10 * 1024 * 1024;
         private readonly string[] ACCEPTED_FILE_TYPES = new[] {".jpg", ".jpeg", ".png" };
-        public ImageController(IWebHostEnvironment env, IImageRepository imageRepo, IMapper mapper)
+        public ImageController(IWebHostEnvironment env, IImageRepository imageRepo, IMapper mapper, IConfirmResp confirmResp, IMissionPhotosRepository missionImageRepo)
         {
             _environment = env ?? throw new ArgumentNullException(nameof(env));
             _imageRepo = imageRepo ?? throw new ArgumentNullException(nameof(imageRepo));
+            _missionImageRepo = missionImageRepo ?? throw new ArgumentNullException(nameof(missionImageRepo));
             _mapper = mapper;
+            _confirmResp = confirmResp;
         }
 
         // GET: api/Image
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("getAllImages")]
+        public async Task<IEnumerable<MissionPhoto>> GetImages()
         {
-            return new string[] { "value1", "value2" };
+            var images = await _missionImageRepo.GetAllImages();
+            return images;
         }
 
         // GET: api/Image/5
@@ -43,29 +51,9 @@ namespace EliteForce.Controllers
             return "value";
         }
 
-        // POST: api/Image/upload
-        //[HttpPost]
-        //public async Task<IActionResult> UploadMultiple(IFormCollection files)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        string uniqueFileName = UploadedFile(photoModel);
-        //        MissionPhoto photo = new MissionPhoto 
-        //        {
-        //            UniquePhotoName = uniqueFileName,
-        //            UploadDate = photoModel.UploadDate,
-        //            UploadedBy = photoModel.UploadedBy
-        //        };
 
-        //        await _imageRepo.Add(photo);
-        //    }
-            
 
-        //    return Ok("Photo-Upload-Success");
-        //}
-
-       // POST: api/Image/upload
-       [HttpPost]
+       [HttpPost("uploadOne")]
         public async Task<IActionResult> UploadOne([FromBody] ImageUploadDto photoModel)
         {
             // var photoEntity = _mapper.Map<MissionPhoto>(photoModel);
@@ -91,6 +79,63 @@ namespace EliteForce.Controllers
 
             return Ok("Photo-Upload-Success");
         }
+
+
+
+        [HttpPost("uploadMulti")]
+        public async Task<ActionResult<List<string>>> UploadMulti()
+        {
+            // var singleFile = Request.Form.Files[0];
+            var files = Request.Form.Files;
+            
+            // string webRootPath = _environment.WebRootPath;
+            string rootDir = _environment.ContentRootPath;
+            string rootFolder = "Resources";
+            string subFolder = "MissionPhotos";
+            
+            // string newPath = Path.Combine(webRootPath, folderName);
+            string newPath = Path.Combine(rootDir, rootFolder, subFolder);
+
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
+
+            if (files.Count > 25)
+            {
+                throw new Exception("Number of files limit exceeded.");
+            }
+
+            var uploadedUrls = new List<string>();
+
+            foreach (var file in files)
+            {
+                ContentDisposition contentDisposition = new ContentDisposition(file.ContentDisposition);
+                string fileName = contentDisposition.FileName.Trim('"');
+
+                string fullPath = Path.Combine(newPath, fileName);
+                string relPath = Path.Combine(rootFolder, subFolder, fileName);
+                uploadedUrls.Add(relPath);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream);
+                }
+            }
+
+            // Send the image URLs to the database.
+            var numberAffected = await _missionImageRepo.AddAMissionPhoto(uploadedUrls);
+
+            if (numberAffected == 0)
+            {
+                throw new Exception("Image path insertion failed");
+            }
+
+            var resp = _confirmResp.ConfirmResponse(true, "Image creation was Successful");
+
+            return Ok(resp);
+        }
+
+
 
 
         // POST: api/Image/upload

@@ -11,28 +11,15 @@ namespace EliteForce.Data
 {
     public interface IUserRepository
     {
-        void Add<T>(T entity) where T : class;
-        void Delete<T>(T entity) where T : class;
+        void Add<User>(User entity);
+        Task<int> DeleteUser(string email);
         Task<bool> SaveAll();
         Task<IEnumerable<User>> GetUsers();
         Task<IEnumerable<User>> GetUserssuper();
         Task<IdentityResult> UpdateClaims(string Id, IList<Claim> ClaimsCollection);
         Task<IList<Claim>> GetClaims(string Id);
+        Task<IdentityResult> UpdateUserStatusActive(string email);
+        Task<IdentityResult> UpdateUserStatusInActive(string email);
     }
 }
 
-
-
-//namespace EliteForce.Data
-//{
-//    public interface IUserRepository
-//    {
-//        void Add<T>(T entity) where T : class;
-//        void Delete<T>(T entity) where T : class;
-//        Task<bool> SaveAll();
-//        Task<IEnumerable<User>> GetUsers();
-//        Task<User> GetSingleUser(string id);
-//        Task<IEnumerable<Subscription>> GetSubscriptionMonths(string userCode);
-//        Task<Subscription> GetSubscriptionMonth(string name, string userCode);
-//    }                                         
-//}

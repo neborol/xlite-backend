@@ -8,6 +8,7 @@ namespace EliteForce.Entities
 {
     public class MissionPhoto
     {
+        [Key]
         public int MissionPhotoId { get; set; }
 
         [Required]

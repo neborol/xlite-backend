@@ -44,7 +44,6 @@ namespace EliteForce.Controllers
 
 
 
- //       [Authorize(Policy = Policies.News)]
         [HttpPut("updateNewsArticle/{newsId}")]
         public async Task<ActionResult> UpdateNewsArticle(NewsUpdateDto newsInput, int newsId)
         {
@@ -65,7 +64,6 @@ namespace EliteForce.Controllers
 
 
 
-//        [Authorize(Policy = Policies.News)]
         [HttpPost("addScrollingNewsMessage")]
         public async Task<ActionResult> AddAScollingNewsMessage(ScrollNewsPostDto scrollNewsInput)
         {

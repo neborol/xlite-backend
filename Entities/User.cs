@@ -9,10 +9,7 @@ namespace EliteForce.Entities
 {
     public class User : IdentityUser
     {
-        public User()
-        {
-            Subscriptions = new Collection<Subscription>();
-        }
+
         // public int UserId { get; set; }
         //public string Username { get; set; }
         //public byte[] PasswordHash { get; set; }
@@ -30,11 +27,10 @@ namespace EliteForce.Entities
         // public string Phone { get; set; }
         [PersonalData]
         public string City { get; set; }
+        public DateTime DateJoined { get; set; }
 
         [PersonalData]
         public string Status { get; set; }
 
-        [PersonalData]
-        public ICollection<Subscription> Subscriptions { get; set; }
     }
 }

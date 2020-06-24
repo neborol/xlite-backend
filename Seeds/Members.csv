@@ -1,9 +1,0 @@
-MemberId,CodeNr,FirstName,LastName,Email,Phone,City,Status,Subscriptions
-123,SCEF-1234,Simon,Mazi1,Mazi1@example.com,647-455-123,Toronto,INACTIVE,NULL
-124,SCEF-1235,Jim,Mazi2,Mazi2@example.com,647-455-124,Toronto,INACTIVE,NULL
-125,SCEF-1236,Suzan,Mazi3,Mazi3@example.com,647-455-125,Toronto,INACTIVE,NULL
-126,SCEF-1237,Samuel,Mazi4,Mazi4@example.com,647-455-126,Toronto,INACTIVE,NULL
-127,SCEF-1238,Divine,Mazi5,Mazi5@example.com,647-455-127,Toronto,INACTIVE,NULL
-128,SCEF-1239,Mary,Mazi6,Mazi6@example.com,647-455-128,Toronto,INACTIVE,NULL
-129,SCEF-1240,Eva,Mazi7,Mazi7@example.com,647-455-129,Toronto,INACTIVE,NULL
-130,SCEF-1241,Gidion,Mazi8,Mazi8@example.com,647-455-130,Toronto,INACTIVE,NULL

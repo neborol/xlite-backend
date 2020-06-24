@@ -57,32 +57,14 @@ namespace EliteForce.Controllers
         {
             //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             // var user = ClaimsPrincipal.Current.Claims;
-            var userId = _userManager.GetUserId(HttpContext.User);
-            var usr = _userManager.Users.FirstOrDefault(u => u.Id == userId);
-            var clms = await _userManager.GetClaimsAsync(usr);
+ //           var userId = _userManager.GetUserId(HttpContext.User);
+ //           var usr = _userManager.Users.FirstOrDefault(u => u.Id == userId);
+ //           var clms = await _userManager.GetClaimsAsync(usr);
             var users = await _userRepo.GetUsers();
+            if (users == null) { NotFound("Users not found"); }
             return Ok(users);
         }
 
-
-        /* Working well with automapper */
-        //[HttpGet("getuserssuper")]
-        ////       [Authorize(Policy = Policies.SuperAdmin)]
-        //public async Task<ActionResult<IEnumerable<UserForFunctionsDto>>> getuserssuper()
-        //{
-        //    var users = await _userRepo.GetUsers();
-        //    var usersForFunctions = new List<UserForFunctionsDto>();
-        //    foreach (var user in users)
-        //    {
-        //        usersForFunctions.Add(new UserForFunctionsDto() { 
-        //            Id = user.Id,
-        //            FirstName = user.FirstName,
-        //            LastName = user.LastName,
-        //            CodeNr = user.CodeNr
-        //        });
-        //    }
-        //    return Ok(usersForFunctions);
-        //}
 
 
         [HttpGet("getuserssuper")]
@@ -122,18 +104,18 @@ namespace EliteForce.Controllers
         }
 
 
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(string id)
-        {
-            //var user = await _userRepo.GetSingleUser(id);
-            //if (user == null)
-            //{
-            //    return NotFound();
-            //}
-            //return Ok(user);
-            return Ok();
-        }
+        //// GET: api/Users/5
+        //[HttpGet("{id}")]
+        //public async Task<ActionResult<User>> GetUser(string id)
+        //{
+        //    //var user = await _userRepo.GetSingleUser(id);
+        //    //if (user == null)
+        //    //{
+        //    //    return NotFound();
+        //    //}
+        //    //return Ok(user);
+        //    return Ok();
+        //}
 
         // PUT: api/Users/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
@@ -173,7 +155,7 @@ namespace EliteForce.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(User user)
         {
-            _context.Users.Add(user);
+            await _context.Users.AddAsync(user);
             await _unitOfWork.CompleteAsync();
 
             // return CreatedAtAction("GetUser", new { id = user.Id }, user);
@@ -187,172 +169,5 @@ namespace EliteForce.Controllers
             return _context.Users.Any(e => e.Id == id);
         }
 
-        // GET: api/Users
-        // [HttpGet("Check")]
-        // [Authorize(Policy = "Claim.DoB")]
-        // [Authorize(Roles = "Admin")]
-        //public IActionResult Check()
-        //{
-        //    var grandmaClaims = new List<Claim>()
-        //    {
-        //        new Claim(ClaimTypes.Name, "Bob"),
-        //        new Claim(ClaimTypes.Email, "Bob@fmail.com"),
-        //        new Claim(ClaimTypes.DateOfBirth, "11/11/2000"),
-        //        new Claim(ClaimTypes.Role, "Admin"),
-        //        new Claim("Grandma.Says", "Very nice Boy"),
-        //    };
-
-        //    var licenseClaims = new List<Claim>()
-        //    {
-        //        new Claim(ClaimTypes.Name, "Bob Ferma"),
-        //        new Claim("DrivingLicense", "A+"),
-        //    };
-
-        //    var grandmaIdentity = new ClaimsIdentity(grandmaClaims, "Grandma Identity");
-        //    var licenseIdentity = new ClaimsIdentity(licenseClaims, "Government Identity");
-
-        //    // create a user principal
-        //    var userPrincipal = new ClaimsPrincipal(new[] { grandmaIdentity, licenseIdentity });
-        //    HttpContext.SignInAsync(userPrincipal);
-        //}
     }
 }
-
-
-
-
-
-
-//namespace EliteForce.Controllers
-//{
-//    [Route("api/[controller]")]
-//    [ApiController]
-//    public class UsersController : ControllerBase
-//    {
-//        private readonly EliteDataContext _context;
-//        private readonly IUserRepository _userRepo;
-//        private readonly IUnitOfWork _unitOfWork;
-//        public UsersController(IUserRepository userRepo, EliteDataContext context, IUnitOfWork uof)
-//        {
-//            _userRepo = userRepo;
-//            _context = context;
-//            _unitOfWork = uof;
-//        }
-
-
-//        public async Task<ActionResult<IEnumerable<User>>> GetUsers()
-//        {
-//            var users = await _userRepo.GetUsers();
-//            return Ok(users);
-//        }
-
-//        // GET: api/Users/5
-//        [HttpGet("{id}")]
-//        public async Task<ActionResult<User>> GetUser(string id)
-//        {
-//            var user = await _userRepo.GetSingleUser(id);
-//            if (user == null)
-//            {
-//                return NotFound();
-//            }
-//            return Ok(user);
-//        }
-
-//        // PUT: api/Users/5
-//        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-//        // more details see https://aka.ms/RazorPagesCRUD.
-//        [HttpPut("{id}")]
-//        public async Task<IActionResult> PutUser(string id, User user)
-//        {
-//            if (id != user.Id)
-//            {
-//                return BadRequest();
-//            }
-
-//            _context.Entry(user).State = EntityState.Modified;  // The use of dbContext should be limited to the Repositories and the unitOfWork only.
-
-//            try
-//            {
-//                await _unitOfWork.CompleteAsync();
-//            }
-//            catch (DbUpdateConcurrencyException)
-//            {
-//                if (!string.IsNullOrEmpty(id))
-//                {
-//                    return NotFound();
-//                }
-//                else
-//                {
-//                    throw;
-//                }
-//            }
-
-//            return NoContent();
-//        }
-
-//        // POST: api/Users
-//        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-//        // more details see https://aka.ms/RazorPagesCRUD.
-//        [HttpPost]
-//        public async Task<ActionResult<User>> PostUser(User user)
-//        {
-//            _context.Users.Add(user);
-//            await _unitOfWork.CompleteAsync();
-
-//            return CreatedAtAction("GetUser", new { id = user.Id }, user);
-//        }
-
-//        // DELETE: api/Users/5
-//        [HttpDelete("{id}")]
-//        public async Task<ActionResult<User>> DeleteUser(int id)
-//        {
-//            var user = await _context.Users.FindAsync(id);
-//            if (user == null)
-//            {
-//                return NotFound();
-//            }
-
-//            _context.Users.Remove(user);
-
-//            // await _context.SaveChangesAsync();
-//            await _unitOfWork.CompleteAsync();
-
-//            return user;
-//        }
-
-//        private bool UserExists(string id)
-//        {
-//            return _context.Users.Any(e => e.Id == id);
-//        }
-
-//        // GET: api/Users
-//        [HttpGet("Check")]
-//        // [Authorize(Policy = "Claim.DoB")]
-//        [Authorize(Roles = "Admin")]
-//        public IActionResult Check()
-//        {
-//            var grandmaClaims = new List<Claim>()
-//            {
-//                new Claim(ClaimTypes.Name, "Bob"),
-//                new Claim(ClaimTypes.Email, "Bob@fmail.com"),
-//                new Claim(ClaimTypes.DateOfBirth, "11/11/2000"),
-//                new Claim(ClaimTypes.Role, "Admin"),
-//                new Claim("Grandma.Says", "Very nice Boy"),
-//            };
-
-//            var licenseClaims = new List<Claim>()
-//            {
-//                new Claim(ClaimTypes.Name, "Bob Ferma"),
-//                new Claim("DrivingLicense", "A+"),
-//            };
-
-//            var grandmaIdentity = new ClaimsIdentity(grandmaClaims, "Grandma Identity");
-//            var licenseIdentity = new ClaimsIdentity(licenseClaims, "Government Identity");
-
-//            // create a user principal
-//            var userPrincipal = new ClaimsPrincipal(new[] { grandmaIdentity, licenseIdentity });
-//            HttpContext.SignInAsync(userPrincipal);
-//            return RedirectToAction("GetUsers");
-//        }
-//    }
-//}

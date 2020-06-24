@@ -23,6 +23,8 @@ using NETCore.MailKit.Core;
 using Microsoft.AspNetCore.Routing;
 using EliteForce.Services;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Identity.UI.V3.Pages.Account.Internal;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace EliteForce.Controllers
 {
@@ -98,6 +100,7 @@ namespace EliteForce.Controllers
                 user.LastName = userForRegister.LastName;
                 user.City = userForRegister.City ?? "";
                 user.PhoneNumber = userForRegister.Phone;
+                user.DateJoined = DateTime.UtcNow;
                 user.Status = "INACTIVE";
                 if (randCode.CodeNr.Length == 4 || !string.IsNullOrWhiteSpace(randCode.CodeNr))
                 {
@@ -125,22 +128,28 @@ namespace EliteForce.Controllers
 
                 await _userManager.AddClaimsAsync(user, claims);
 
-                //await _userManager.AddClaimAsync(user, new Claim("pilot", "false"));
-                //await _userManager.AddClaimAsync(user, new Claim("news", "false"));
-                //await _userManager.AddClaimAsync(user, new Claim("admin", "false"));
 
-                //// Generate an email
-                //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                // Generate an email
+                // Generate email confirmation code and link first
+                var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                // Within the user email, clicking on this link would call the VerifyEmail action method
+                var regConfirmationLink = Url.Action(nameof(VerifEmail), "Auth", new { code, email = user.Email}, Request.Scheme);
+                // Pass the link to the email body
+                await _mailService.SendEmailAsync( "takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello, Please Confirm your Registration with Elite Force by clicking on the button. <br/><button href=\"" + regConfirmationLink + "\">Confirm Registration</button></p>");
+
+                
+                // return RedirectToAction(nameof(SuccessRegistration));
+                
                 //// var link = Url.Action("VerifyEmail", "Auth", new {userEmail = user.Email });
                 //var link = _linkGenerator.GetPathByAction(HttpContext, "VerifEmail", "Auth", new {userId = user.Id, code });
                 //await _emailService.SendAsync("takang33@yahoo.com", "Email Verify", link, true);
                 //var conf = _confirmResp.ConfirmResponse(true, "An Email has been sent to you");
                 //return Ok(conf);
 
-                var conf = _confirmResp.ConfirmResponse(true, "Registration was successful");
-                await _mailService.SendEmailAsync("takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello, Please Confirm your Registration with Elite Force.</p>");
+                var conf = _confirmResp.ConfirmResponse(true, "Almost there, an email has been sent to you.");
+                // await _mailService.SendEmailAsync("takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello, Please Confirm your Registration with Elite Force.</p>");
                 // return Ok(conf);
-                return Ok("Registration confirm Email has been sent.");
+                return Ok(conf);
             }
             else
             {
@@ -174,8 +183,8 @@ namespace EliteForce.Controllers
         }
 
 
-        [HttpPost("Trylogin")]
-        public async Task<IActionResult> TryLogin(UserForLoginDto userForLogin)
+        [HttpPost("login")]
+        public async Task<IActionResult> Login(UserForLoginDto userForLogin)
         {
             var user = await _userManager.FindByEmailAsync(userForLogin.UserEmail);
             if (user == null)
@@ -194,6 +203,13 @@ namespace EliteForce.Controllers
             }
             // Put the UserName back as it was.
             user.UserName = orignal_userName;
+
+            // Check if the user status is active or inactive before loging the user in, else, no login possible.
+            if (user.Status == "INACTIVE")
+            {
+                var conf = _confirmResp.ConfirmResponse(false, "Not authorized");
+                return Unauthorized(conf);
+            }
 
             // Get all the claims from the database and add the common ones to it.
             var storedClaims = await _userManager.GetClaimsAsync(user);

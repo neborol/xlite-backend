@@ -4,14 +4,16 @@ using EliteForce.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EliteForce.Migrations
 {
     [DbContext(typeof(EliteDataContext))]
-    partial class EliteDataContextModelSnapshot : ModelSnapshot
+    [Migration("20200627090141_EventsAddition")]
+    partial class EventsAddition
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -19,7 +19,9 @@ namespace EliteForce.Data
 
         public async Task<List<News>> GetnewsArticles(string category)
         {
-            var articles = await _context.NewsItems.Where(n => n.NewsCategory == category).ToListAsync();
+            var articles = await _context.NewsItems
+                .Where(n => n.NewsCategory == category)
+                .ToListAsync();
             
             if (articles.Count == 0)
             {
@@ -84,8 +86,8 @@ namespace EliteForce.Data
         public async Task<int> AddAScrollNewsItem(ScrollNewsPostDto scrollNewsItem)
         {
             var EntityScrollNewsItem = new ScrollingNews();
-            var flashObject = await _context.ScrollingNewsItems.FirstAsync();
-            if (string.IsNullOrEmpty(flashObject.NewsScrollbar))
+            var flashObject = await _context.ScrollingNewsItems.FirstOrDefaultAsync();
+            if (flashObject == null)
             {
                 EntityScrollNewsItem.NewsScrollbar = scrollNewsItem.NewsScrollbar;
 

@@ -22,6 +22,7 @@ namespace EliteForce.Data
         public DbSet<Activity> Activities { get; set; }
         public DbSet<About> AboutStatements { get; set; }
         public DbSet<Home> HomeStatements { get; set; }
+        public DbSet<EventObj> EventItems { get; set; }
         public DbSet<ScrollingNews> ScrollingNewsItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)

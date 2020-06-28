@@ -135,7 +135,7 @@ namespace EliteForce.Controllers
                 // Within the user email, clicking on this link would call the VerifyEmail action method
                 var regConfirmationLink = Url.Action(nameof(VerifEmail), "Auth", new { code, email = user.Email}, Request.Scheme);
                 // Pass the link to the email body
-                await _mailService.SendEmailAsync( "takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello, Please Confirm your Registration with Elite Force by clicking on the button. <br/><button href=\"" + regConfirmationLink + "\">Confirm Registration</button></p>");
+                await _mailService.SendEmailAsync( "takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello" + user.FirstName + ", Please Confirm your Registration with Elite Force by clicking on the button. <br/><a href=\"" + regConfirmationLink + "\">Confirm Registration</a></p>");
 
                 
                 // return RedirectToAction(nameof(SuccessRegistration));
@@ -218,17 +218,7 @@ namespace EliteForce.Controllers
             storedClaims.Add(new Claim("CodeId", user.CodeNr));
             storedClaims.Add(new Claim(ClaimTypes.Name, user.UserName));
 
-            // If the compiler makes it up to this point, then the user exists the credentials are correct, and so token should be generated.
-            /* Token should be sent back at this stage.    return Ok(user.UserName); */
-            //var claims = new[]
-            //{
-            //    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-            //    new Claim(ClaimTypes.Email, user.Email),
-            //    new Claim("CodeId", user.CodeNr),
-            //    new Claim(ClaimTypes.Name, user.UserName),
-            //    new Claim(ClaimTypes.Role, "Admin")
-            //};
-
+          
             // Create a key that would not be readable in our token itself, which should be encrypted in byte[]... 
             var key = new SymmetricSecurityKey(Encoding.UTF8
                 .GetBytes(_config.GetSection("Data:AppSettings:Token").Value)); // Remember this should be stored in environment variables

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EliteForce.AppWideHelpers;
+using EliteForce.AuthorizationRequirements;
 using EliteForce.Data;
 using EliteForce.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,6 +25,7 @@ namespace EliteForce.Controllers
         }
        
         [HttpGet("getevents")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<IEnumerable<EventObj>> Get()
         {
             return await _eventsRepo.GetEvents();
@@ -30,6 +33,7 @@ namespace EliteForce.Controllers
 
 
         [HttpPost("createevent")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> CreateEvent(EventObj eventObj)
         {
             if (!ModelState.IsValid)
@@ -49,6 +53,7 @@ namespace EliteForce.Controllers
         }
 
         [HttpPut("updateevent")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> Put(EventObj updateObj)
         {
             if (!ModelState.IsValid)
@@ -69,6 +74,7 @@ namespace EliteForce.Controllers
 
  
         [HttpDelete("deleteevent/{eventId}")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> Delete(int eventId)
         {
             var resp = await _eventsRepo.DeleteEvent(eventId);

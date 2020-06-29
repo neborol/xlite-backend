@@ -24,6 +24,7 @@ namespace EliteForce.Controllers
         }
 
         [HttpPost("addAVideoItem")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> AddAVideoItem(MissionVideoPostDto videoData)
         {
             if (!ModelState.IsValid)
@@ -38,6 +39,46 @@ namespace EliteForce.Controllers
                 return BadRequest("The video item was not created.");
             }
             var confirm = _confirm.ConfirmResponse(true, "A Video item was created successfully.");
+            return Ok(confirm);
+        }
+
+
+        [HttpPut("updateVideoData/{id}")]
+        [Authorize(Policy = Policies.Manager)]
+        public async Task<ActionResult> Update(VideoUpdateDto videoData, int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var num = await _videoRepo.UpdateVideo(videoData, id);
+
+            if (num < 1)
+            {
+                return BadRequest("The video item was not updated.");
+            }
+            var confirm = _confirm.ConfirmResponse(true, "A Video item was updated successfully.");
+            return Ok(confirm);
+        }
+
+
+        [HttpDelete("deletevideo/{videoId}")]
+        [Authorize(Policy = Policies.Manager)]
+        public async Task<ActionResult> Delete(int videoId)
+        {
+            if (videoId == 0)
+            {
+                return BadRequest("Video id must be provided.");
+            }
+
+            var num = await _videoRepo.DeleteVideo(videoId);
+
+            if (num < 1)
+            {
+                return BadRequest("The video item was not deleted.");
+            }
+            var confirm = _confirm.ConfirmResponse(true, "A Video item was deleted successfully.");
             return Ok(confirm);
         }
     }

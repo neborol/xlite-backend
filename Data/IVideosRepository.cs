@@ -13,5 +13,7 @@ namespace EliteForce.Data
         Task<List<MissionVideo>> GetVideos();
         Task<List<MissionVideo>> GetCategorizedVideos(string category);
         Task<bool> RateVideo(RatingsDto ratingsObject);
+        Task<int> UpdateVideo(VideoUpdateDto vUpdateObj, int id);
+        Task<int> DeleteVideo(int id);
     }
 }

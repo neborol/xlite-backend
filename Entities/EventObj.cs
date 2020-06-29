@@ -23,14 +23,14 @@ namespace EliteForce.Entities
         public DateTime EventDate { get; set; }
 
         [Required]
-        [StringLength(60, MinimumLength = 3, ErrorMessage = "Your question is too short.")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "The time must be between 3 and 60 characters.")]
         public string Time { get; set; }
 
         [Required]
-        [StringLength(140, MinimumLength = 3, ErrorMessage = "Your question is too short.")]
+        [StringLength(140, MinimumLength = 3, ErrorMessage = "The venue must be between 3 and 140 characters")]
         public string Venue { get; set; }
 
-        [StringLength(200, MinimumLength = 3, ErrorMessage = "Your question is too short.")]
+        [StringLength(200, MinimumLength = 0, ErrorMessage = "The comment must be between 0 and 200 characters.")]
         public string Comment { get; set; }
     }
 }

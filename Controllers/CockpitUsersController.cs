@@ -11,6 +11,8 @@ using EliteForce.Dtos;
 using EliteForce.Entities;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
+using EliteForce.AuthorizationRequirements;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EliteForce.Controllers
 {
@@ -42,6 +44,7 @@ namespace EliteForce.Controllers
 
 
         [HttpPut("updateStatusActive/{userEmail}")]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<ActionResult> UpdateUserStatusActive(string userEmail)
         {
             if (String.IsNullOrEmpty(userEmail))
@@ -61,6 +64,7 @@ namespace EliteForce.Controllers
 
 
         [HttpPut("updateStatusInActive/{userEmail}")]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<ActionResult> UpdateUserStatusInActive(string userEmail)
         {
             if (String.IsNullOrEmpty(userEmail))
@@ -79,7 +83,8 @@ namespace EliteForce.Controllers
         }
 
 
-        [HttpDelete("deleteMissionPhoto/{userEmail}")]
+        [HttpDelete("deleteUser/{userEmail}")]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<ActionResult> DeleteUser(string userEmail)
         {
             if (String.IsNullOrEmpty(userEmail))

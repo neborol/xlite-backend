@@ -2,9 +2,11 @@
 using System.Security.Claims;
 using System.Threading.Tasks;
 using EliteForce.AppWideHelpers;
+using EliteForce.AuthorizationRequirements;
 using EliteForce.Data;
 using EliteForce.Dtos;
 using EliteForce.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +32,7 @@ namespace EliteForce.Controllers
         }
 
         [HttpPut("updateMissionPhoto/{photoId}")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> UpdateMissionPhoto(PhotoUpdateDto updateObject, int photoId)
         {
             if (!ModelState.IsValid)
@@ -50,6 +53,7 @@ namespace EliteForce.Controllers
 
 
         [HttpDelete("deleteMissionPhoto/{photoId}")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> DeleteMissionPhoto(int photoId)
         {
             if (!ModelState.IsValid)

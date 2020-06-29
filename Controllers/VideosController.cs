@@ -8,6 +8,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using EliteForce.AuthorizationRequirements;
+
 
 namespace EliteForce.Controllers
 {
@@ -26,6 +29,7 @@ namespace EliteForce.Controllers
         }
 
         [HttpGet("getVideos")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> GetVideos()
         {
             var videos = await _videosRepo.GetVideos();
@@ -40,6 +44,7 @@ namespace EliteForce.Controllers
 
 
         [HttpGet("getCategorizedVideos/{category}")]
+        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> GetCategorizedVideos(string category)
         {
             var videos = await _videosRepo.GetCategorizedVideos(category);

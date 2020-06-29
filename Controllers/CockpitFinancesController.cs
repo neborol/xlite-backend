@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using EliteForce.AppWideHelpers;
 using EliteForce.Data;
 using EliteForce.Dtos;
+using Microsoft.AspNetCore.Authorization;
+using EliteForce.AuthorizationRequirements;
 
 namespace EliteForce.Controllers
 {
@@ -21,6 +23,7 @@ namespace EliteForce.Controllers
         }
 
         [HttpGet("getSubscriptions/{userId}")]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<ActionResult> GetSubscriptions(string userId)
         {
             if (string.IsNullOrEmpty(userId))
@@ -40,6 +43,7 @@ namespace EliteForce.Controllers
 
 
         [HttpGet("contributions")]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<ActionResult> GetTotalMembersAmount()
         {
             var total = await _financesRepo.GetTotalForMembers();

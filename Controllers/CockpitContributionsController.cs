@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EliteForce.AppWideHelpers;
+using EliteForce.AuthorizationRequirements;
 using EliteForce.Data;
 using EliteForce.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EliteForce.Controllers
@@ -23,6 +25,7 @@ namespace EliteForce.Controllers
 
 
         [HttpPost("addContribution")]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<ActionResult> AddContribution(ContributionsPostDto contributionsObj)
         {
             if (!ModelState.IsValid)

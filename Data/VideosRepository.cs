@@ -81,5 +81,45 @@ namespace EliteForce.Data
         }
 
 
+        public async Task<int> UpdateVideo(VideoUpdateDto vUpdateObj, int id)
+        {
+            var video2Update = await _context.MissionVideos.FindAsync(id);
+            if(video2Update == null)
+            {
+                throw new Exception("Video to be updated is not found.");
+            }
+            video2Update.Title = vUpdateObj.Title;
+            video2Update.Description = vUpdateObj.Description;
+
+            _context.MissionVideos.Update(video2Update);
+            var numbr = await _context.SaveChangesAsync();
+
+            if (numbr.Equals(0))
+            {
+                return 0;
+            }
+
+            return numbr;
+        }
+
+        public async Task<int> DeleteVideo(int id)
+        {
+            var video2Delete = await _context.MissionVideos.FindAsync(id);
+            if(video2Delete == null)
+            {
+                throw new Exception("Video to be deleted is not found.");
+            }
+
+            _context.MissionVideos.Remove(video2Delete);
+            var numbr = await _context.SaveChangesAsync();
+
+            if (numbr.Equals(0))
+            {
+                return 0;
+            }
+
+            return numbr;
+        }
+
     }
 }

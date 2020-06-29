@@ -51,7 +51,7 @@ namespace EliteForce.Controllers
         // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         //[Authorize(Policy = "NewsManager")]
         [HttpGet("getusers")]
-        [Authorize(Policy = Policies.News)]
+        [Authorize(Policy = Policies.Pilot)]
         // [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
@@ -121,6 +121,7 @@ namespace EliteForce.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<IActionResult> PutUser(string id, User user)
         {
             if (id != user.Id)
@@ -153,6 +154,7 @@ namespace EliteForce.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
+        [Authorize(Policy = Policies.Pilot)]
         public async Task<ActionResult<User>> PostUser(User user)
         {
             await _context.Users.AddAsync(user);

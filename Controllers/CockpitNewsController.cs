@@ -25,6 +25,7 @@ namespace EliteForce.Controllers
 
  //       [Authorize(Policy = Policies.News)]
         [HttpPost("addANewsItem")]
+        [Authorize(Policy = Policies.News)]
         public async Task<ActionResult> AddANewsItem(NewsPostDto newsInput)
         {
             if (!ModelState.IsValid)
@@ -45,6 +46,7 @@ namespace EliteForce.Controllers
 
 
         [HttpPut("updateNewsArticle/{newsId}")]
+        [Authorize(Policy = Policies.News)]
         public async Task<ActionResult> UpdateNewsArticle(NewsUpdateDto newsInput, int newsId)
         {
             if (!ModelState.IsValid)
@@ -65,6 +67,7 @@ namespace EliteForce.Controllers
 
 
         [HttpPost("addScrollingNewsMessage")]
+        [Authorize(Policy = Policies.News)]
         public async Task<ActionResult> AddAScollingNewsMessage(ScrollNewsPostDto scrollNewsInput)
         {
             if (!ModelState.IsValid)

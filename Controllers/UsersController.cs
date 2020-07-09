@@ -16,6 +16,7 @@ using EliteForce.AuthorizationRequirements;
 using EliteForce.Dtos;
 using AutoMapper;
 using EliteForce.AppWideHelpers;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Controllers
 {
@@ -29,6 +30,9 @@ namespace EliteForce.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly IConfirmResp _confirmResp;
+        private readonly ILogger _logger;
+        
+
 
         public UsersController(
             IUserRepository userRepo, 
@@ -36,7 +40,8 @@ namespace EliteForce.Controllers
             IUnitOfWork uof, 
             UserManager<User> userManager,
             IMapper mapper,
-            IConfirmResp confirmResponse
+            IConfirmResp confirmResponse,
+            ILogger<UsersController> logger
         )
         {
             _userRepo = userRepo;
@@ -45,6 +50,7 @@ namespace EliteForce.Controllers
             _userManager = userManager;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _confirmResp = confirmResponse;
+            _logger = logger;
         }
 
 

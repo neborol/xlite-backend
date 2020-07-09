@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EliteForce.Migrations
 {
-    public partial class SubscriptionOptimization : Migration
+    public partial class FinalMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -95,6 +95,24 @@ namespace EliteForce.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Codes", x => x.CodeId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventItems",
+                columns: table => new
+                {
+                    EventId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Title = table.Column<string>(maxLength: 60, nullable: false),
+                    Description = table.Column<string>(maxLength: 250, nullable: false),
+                    EventDate = table.Column<DateTime>(nullable: false),
+                    Time = table.Column<string>(maxLength: 60, nullable: false),
+                    Venue = table.Column<string>(maxLength: 140, nullable: false),
+                    Comment = table.Column<string>(maxLength: 200, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventItems", x => x.EventId);
                 });
 
             migrationBuilder.CreateTable(
@@ -385,6 +403,9 @@ namespace EliteForce.Migrations
 
             migrationBuilder.DropTable(
                 name: "Codes");
+
+            migrationBuilder.DropTable(
+                name: "EventItems");
 
             migrationBuilder.DropTable(
                 name: "FaqItems");

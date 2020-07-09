@@ -12,6 +12,7 @@ using EliteForce.Entities;
 using Microsoft.AspNetCore.Hosting; // .IWebHostEnvironment;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.Net.Http.Headers;
 
 namespace EliteForce.Controllers
@@ -27,13 +28,23 @@ namespace EliteForce.Controllers
         private readonly IConfirmResp _confirmResp;
         private readonly int MAX_BYTES = 10 * 1024 * 1024;
         private readonly string[] ACCEPTED_FILE_TYPES = new[] {".jpg", ".jpeg", ".png" };
-        public ImageController(IWebHostEnvironment env, IImageRepository imageRepo, IMapper mapper, IConfirmResp confirmResp, IMissionPhotosRepository missionImageRepo)
+        private readonly ILogger _logger;
+        
+
+        public ImageController(
+            IWebHostEnvironment env, 
+            IImageRepository imageRepo, 
+            IMapper mapper, IConfirmResp confirmResp, 
+            IMissionPhotosRepository missionImageRepo,
+            ILogger<ImageController> logger
+            )
         {
             _environment = env ?? throw new ArgumentNullException(nameof(env));
             _imageRepo = imageRepo ?? throw new ArgumentNullException(nameof(imageRepo));
             _missionImageRepo = missionImageRepo ?? throw new ArgumentNullException(nameof(missionImageRepo));
             _mapper = mapper;
             _confirmResp = confirmResp;
+            _logger = logger;
         }
 
         // GET: api/Image

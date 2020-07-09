@@ -3,6 +3,7 @@ using EliteForce.Dtos;
 using EliteForce.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,18 @@ namespace EliteForce.Data
     {
         private EliteDataContext _context;
         private readonly UserManager<User> _userManager;
-        public ContributionsRepository(EliteDataContext context, UserManager<User> userManager)
+        private readonly ILogger _logger;
+        
+
+        public ContributionsRepository(
+            EliteDataContext context, 
+            UserManager<User> userManager,
+            ILogger<ContributionsRepository> logger
+         )
         {
             _context = context;
             _userManager = userManager;
+            _logger = logger;
         }
 
 

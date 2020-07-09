@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
-
-
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Data
 {
@@ -13,11 +12,19 @@ namespace EliteForce.Data
     {
         private EliteDataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly ILogger _logger;
+        
 
-        public ImageRepository(EliteDataContext context, IHttpContextAccessor httpContextAccessor)
+
+        public ImageRepository(
+            EliteDataContext context, 
+            IHttpContextAccessor httpContextAccessor,
+            ILogger<ImageRepository> logger
+        )
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _logger = logger;
         }
         public async Task<int> Add(MissionPhoto photo)
         {

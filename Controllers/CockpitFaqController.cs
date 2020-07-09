@@ -10,6 +10,7 @@ using EliteForce.Entities;
 using EliteForce.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using EliteForce.AuthorizationRequirements;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Controllers
 {
@@ -19,10 +20,14 @@ namespace EliteForce.Controllers
     {
         IFaqRepository _faqRepo;
         IConfirmResp _conf;
-        public CockpitFaqController(IFaqRepository faqRepo, IConfirmResp conf)
+        private readonly ILogger _logger;
+        
+
+        public CockpitFaqController(IFaqRepository faqRepo, IConfirmResp conf, ILogger<CockpitFaqController> logger)
         {
             _faqRepo = faqRepo;
             _conf = conf;
+            _logger = logger;
         }
 
         [HttpPost("addfaq")]
@@ -31,11 +36,13 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cfaq controller,  model not correct");
                 return BadRequest(ModelState);
             }
             var num = await _faqRepo.AddAnFaq(faq);
             if (num < 1)
             {
+                _logger.LogError("In cfaq controller,  failed");
                 return BadRequest("The FAQ was not added.");
             }
             var confirm = _conf.ConfirmResponse(true, "An FAQ Item has been added successfully.");
@@ -44,7 +51,6 @@ namespace EliteForce.Controllers
 
 
         [HttpGet("getfaqs")]
-        [Authorize(Policy = Policies.Manager)]
         public async Task<ActionResult> GetFaqs()
         {
             var faqs = await _faqRepo.GetFaqs();
@@ -58,12 +64,14 @@ namespace EliteForce.Controllers
         {
             if (string.IsNullOrEmpty(faqToEdit.FaqId)) 
             {
+                _logger.LogError("In cfaq controller,  editfaq bad model");
                 return BadRequest("No item Available.");
             }
 
             var numbAffected = await _faqRepo.EditAnFaq(faqToEdit);
             if (numbAffected == 0)
             {
+                _logger.LogError("In cfaq controller,  nothing returned from edit save");
                 return NotFound("The FAQ was not updated.");
             }
 
@@ -78,12 +86,14 @@ namespace EliteForce.Controllers
         {
             if (string.IsNullOrEmpty(id)) 
             {
+                _logger.LogError("In cfaq controller,  deletefaq failed");
                 return BadRequest("No item Available.");
             }
 
             var numbAffected = await _faqRepo.DeleteAnFaq(id);
             if (numbAffected == 0)
             {
+                _logger.LogError("In cfaq controller,  repo returned nothing from delete.");
                 return NotFound("The FAQ was not deleted.");
             }
 

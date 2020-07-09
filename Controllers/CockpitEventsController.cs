@@ -9,6 +9,7 @@ using EliteForce.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Controllers
 {
@@ -18,14 +19,20 @@ namespace EliteForce.Controllers
     {
         private readonly IEventsRepository _eventsRepo;
         private readonly IConfirmResp _conf;
-        public CockpitEventsController(IEventsRepository eventsRepo, IConfirmResp conf)
+        private readonly ILogger _logger;
+
+        public CockpitEventsController(
+            IEventsRepository eventsRepo, 
+            IConfirmResp conf,
+            ILogger<CockpitEventsController> logger
+        )
         {
             _eventsRepo = eventsRepo;
             _conf = conf;
+            _logger = logger;
         }
        
         [HttpGet("getevents")]
-        [Authorize(Policy = Policies.Manager)]
         public async Task<IEnumerable<EventObj>> Get()
         {
             return await _eventsRepo.GetEvents();
@@ -38,6 +45,7 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cEvents controller, model state to create event was not correct");
                 return BadRequest(ModelState);
             }
 
@@ -45,6 +53,7 @@ namespace EliteForce.Controllers
 
             if (numberAdded == 0)
             {
+                _logger.LogError("In cevents controller event creation was not saved");
                 return BadRequest("Event add failed.");
             }
 
@@ -58,12 +67,14 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cevents controller model state was not good.");
                 return BadRequest(ModelState);
             }
 
             var numUpdated = await _eventsRepo.UpdateAnEvent(updateObj);
             if (numUpdated == 0)
             {
+                _logger.LogError("In cevents controller, nothing came back from events saving");
                 throw new Exception("Event item update failed.");
             }
 
@@ -80,6 +91,7 @@ namespace EliteForce.Controllers
             var resp = await _eventsRepo.DeleteEvent(eventId);
             if (resp == 0)
             {
+                _logger.LogError("In cevents controller, delate event failed");
                 return BadRequest("Delete event failed");
             }
             var conf = _conf.ConfirmResponse(true, "Event was deleted successfully");
@@ -87,3 +99,4 @@ namespace EliteForce.Controllers
         }
     }
 }
+

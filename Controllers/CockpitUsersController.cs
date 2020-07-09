@@ -13,6 +13,8 @@ using Microsoft.AspNetCore.Identity;
 using AutoMapper;
 using EliteForce.AuthorizationRequirements;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
+using EliteForce.NLoging;
 
 namespace EliteForce.Controllers
 {
@@ -25,6 +27,9 @@ namespace EliteForce.Controllers
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly IConfirmResp _confirm;
+        private readonly ILogger _logger;
+        private readonly ILoggerManager _nLogger;
+
 
         public CockpitUsersController(
             IUserRepository userRepo,
@@ -32,7 +37,9 @@ namespace EliteForce.Controllers
             IUnitOfWork uof,
             UserManager<User> userManager,
             IMapper mapper,
-            IConfirmResp confirmResponse
+            IConfirmResp confirmResponse,
+            ILogger<CockpitUsersController> logger,
+            ILoggerManager nLogger
         )
         {
             _userRepo = userRepo;
@@ -40,7 +47,10 @@ namespace EliteForce.Controllers
             _userManager = userManager;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _confirm = confirmResponse;
+            _logger = logger;
+            _nLogger = nLogger;
         }
+
 
 
         [HttpPut("updateStatusActive/{userEmail}")]
@@ -49,6 +59,8 @@ namespace EliteForce.Controllers
         {
             if (String.IsNullOrEmpty(userEmail))
             {
+                _logger.LogError("In cusers controller,  update status: incorrect model");
+                _nLogger.LogError("In cusers controller nlog,  update status: incorrect model");
                 return BadRequest(ModelState);
             }
 
@@ -56,8 +68,11 @@ namespace EliteForce.Controllers
 
             if (!result.Succeeded)
             {
+                _logger.LogError("In cusers controller,  update user status failed " + userEmail);
+                _nLogger.LogError("In cusers controller nlog,  update user status failed " + userEmail);
                 return BadRequest("The User Status was not updated");
             }
+            _nLogger.LogInfo("The user with email: " + userEmail + " has been activated.");
             var confirm = _confirm.ConfirmResponse(true, "User with email " + userEmail + " is now Active");
             return Ok(confirm);
         }
@@ -76,6 +91,8 @@ namespace EliteForce.Controllers
 
             if (!result.Succeeded)
             {
+                _logger.LogError("In cusers controller,  update user status did not succeed at repo");
+                _nLogger.LogError("In cusers controller nlog,  update user status did not succeed at repo");
                 return BadRequest("The User Status was not updated");
             }
             var confirm = _confirm.ConfirmResponse(true, "User with email " + userEmail + " is now InActive");
@@ -96,6 +113,8 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cusers controller,  delete user got nothing back from repo");
+                _nLogger.LogError("In cusers controller nlog,  delete user got nothing back from repo");
                 return BadRequest("The User could not be deleted");
             }
             var confirm = _confirm.ConfirmResponse(true, "The User " + userEmail + " has been deleted.");

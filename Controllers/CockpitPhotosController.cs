@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Controllers
 {
@@ -20,15 +21,20 @@ namespace EliteForce.Controllers
         private readonly IMissionPhotosRepository _missionPhotosRepo;
         private readonly IConfirmResp _confirm;
         private readonly UserManager<User> _userManager;
+        private readonly ILogger _logger;
+        
+
         public CockpitPhotosController(
             IMissionPhotosRepository missionPhotosRepo, 
             IConfirmResp confirm,
-            UserManager<User> userManager
+            UserManager<User> userManager,
+            ILogger<CockpitPhotosController> logger
             )
         {
             _missionPhotosRepo = missionPhotosRepo;
             _confirm = confirm;
             _userManager = userManager;
+            _logger = logger;
         }
 
         [HttpPut("updateMissionPhoto/{photoId}")]
@@ -37,6 +43,7 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cphoto controller,  update mission photo model not good");
                 return BadRequest(ModelState);
             }
             var user = await _userManager.GetUserAsync(User);
@@ -44,6 +51,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cphotos controller,  update mission photo returned 0 from repo");
                 return BadRequest("The photograph was not updated");
             }
             var confirm = _confirm.ConfirmResponse(true, "A Mission has been updated successfully.");
@@ -58,6 +66,7 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cphotos controller,  delete mission photo model invalid");
                 return BadRequest(ModelState);
             }
 
@@ -65,6 +74,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cphotos controller,  delete mission photos returned 0 from repo");
                 return BadRequest("The photograph could not be deleted");
             }
             var confirm = _confirm.ConfirmResponse(true, "A Mission Photo has been deleted.");

@@ -4,6 +4,7 @@ using EliteForce.Data;
 using EliteForce.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,19 +18,23 @@ namespace EliteForce.Controllers
     {
         INewsRepository _newsRepo;
         IConfirmResp _conf;
-        public CockpitNewsController(INewsRepository newsRepo, IConfirmResp conf)
+        private readonly ILogger _logger;
+        
+
+        public CockpitNewsController(INewsRepository newsRepo, IConfirmResp conf, ILogger<CockpitNewsController> logger)
         {
             _newsRepo = newsRepo;
             _conf = conf;
+            _logger = logger;
         }
 
- //       [Authorize(Policy = Policies.News)]
         [HttpPost("addANewsItem")]
         [Authorize(Policy = Policies.News)]
         public async Task<ActionResult> AddANewsItem(NewsPostDto newsInput)
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogWarning("In cnews controller,  addnews item model invalid");
                 return BadRequest(ModelState);
             }
 
@@ -37,6 +42,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cnews controller, nothing returned from repo add-news item");
                 return BadRequest("The News item was not added.");
             }
             var confirm = _conf.ConfirmResponse(true, "A News item has been added successfully.");
@@ -51,6 +57,7 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cnews controller, failed");
                 return BadRequest(ModelState);
             }
 
@@ -58,6 +65,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cnews controller, update news article returned nothing from repo.");
                 return BadRequest("The News item was not updated.");
             }
             var confirm = _conf.ConfirmResponse(true, "A News item has been updated successfully.");
@@ -79,6 +87,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cnews controller, addScrollnews returned nothing from repo");
                 return BadRequest("The Scrolling message was not added.");
             }
             var confirm = _conf.ConfirmResponse(true, "A Scrolling message has been added successfully.");

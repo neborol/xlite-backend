@@ -2,6 +2,7 @@
 using EliteForce.Dtos;
 using EliteForce.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,13 @@ namespace EliteForce.Data
     public class MissionPhotosRepository : IMissionPhotosRepository
     {
         private readonly EliteDataContext _context;
-        public MissionPhotosRepository(EliteDataContext context)
+        private readonly ILogger _logger;
+        
+
+        public MissionPhotosRepository(EliteDataContext context, ILogger<MissionPhotosRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task<int> AddAMissionPhoto(List<string> urlList)

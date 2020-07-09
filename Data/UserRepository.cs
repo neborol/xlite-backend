@@ -4,6 +4,7 @@ using EliteForce.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -19,11 +20,20 @@ namespace EliteForce.Data
         private EliteDataContext _context;
         private UserManager<User> _userManager;
         private IMapper _mapper;
+        private readonly ILogger _logger;
+        
 
-        public UserRepository(EliteDataContext context, UserManager<User> userManager, IMapper mapper)
+
+        public UserRepository(
+            EliteDataContext context, 
+            UserManager<User> userManager, 
+            IMapper mapper,
+            ILogger<UserRepository> logger
+            )
         {
             _context = context;
             _userManager = userManager;
+            _logger = logger;
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
         public void Add<User>(User entity)

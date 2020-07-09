@@ -2,6 +2,7 @@
 using EliteForce.Entities;
 using IdentityServer4.Extensions;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,13 @@ namespace EliteForce.Data
     public class NewsRepository : INewsRepository
     {
         private readonly EliteDataContext _context;
-        public NewsRepository(EliteDataContext context)
+        private readonly ILogger _logger;
+        
+
+        public NewsRepository(EliteDataContext context, ILogger<NewsRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task<List<News>> GetnewsArticles(string category)

@@ -25,10 +25,11 @@ using EliteForce.Services;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Identity.UI.V3.Pages.Account.Internal;
 using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Controllers
 {
-    [EnableCors("ElitePolice")]
+    [EnableCors("EliteCorsPolicy")]
     [ApiController]
     [Route("api/[controller]")]
     public class AuthController : ControllerBase
@@ -43,6 +44,9 @@ namespace EliteForce.Controllers
         private readonly IMailService _mailService;
         private readonly LinkGenerator _linkGenerator;
         // public UserManager<IdentityUser> _userManager { get; }
+        private readonly ILogger _logger;
+        
+
 
         public AuthController(
             IAuthRepository repo,
@@ -52,7 +56,8 @@ namespace EliteForce.Controllers
             SignInManager<User> signInManager,
             IConfirmResp confirmResp,
             IMailService mailService,
-            LinkGenerator linkGenerator
+            LinkGenerator linkGenerator,
+            ILogger<NewsController> logger
             )
         {
             _repo = repo;
@@ -63,6 +68,7 @@ namespace EliteForce.Controllers
             _confirmResp = confirmResp;
             _mailService = mailService;
             _linkGenerator = linkGenerator;
+            _logger = logger;
         }
 
         [HttpPost("register")]
@@ -77,6 +83,7 @@ namespace EliteForce.Controllers
 
             if (!ModelState.IsValid)
             {
+                _logger.LogError("Invalid model passed to User Registration, AuthController");
                 return BadRequest(ModelState);
             }
 
@@ -86,6 +93,7 @@ namespace EliteForce.Controllers
             // If user searched is not = null, then there is a user registered with this email, hence send back bad request.
             if (user2verify != null)
             {
+                _logger.LogWarning("User2Verify could not be found");
                 return BadRequest("A User with this email " + useremail + " already exists");
             }
 
@@ -135,20 +143,27 @@ namespace EliteForce.Controllers
                 // Within the user email, clicking on this link would call the VerifyEmail action method
                 var regConfirmationLink = Url.Action(nameof(VerifEmail), "Auth", new { code, email = user.Email}, Request.Scheme);
                 // Pass the link to the email body
-                await _mailService.SendEmailAsync( "takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello" + user.FirstName + ", Please Confirm your Registration with Elite Force by clicking on the button. <br/><a href=\"" + regConfirmationLink + "\">Confirm Registration</a></p>");
+                await _mailService.SendEmailAsync( "takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello" +
+                    user.FirstName + " " + user.LastName + ", Please Confirm your Registration with Elite Force by clicking on the following link. <br/><a href=\"" +
+                    regConfirmationLink + "\">Confirm Registration</a></p>");
 
-                
+                // Sent the registered user his code number:
+                await _mailService.SendEmailAsync(useremail, "Your Membership Code-Number", "<p>Hello" + user.FirstName +
+                    " " + user.LastName + ", Thanks for registering. Your membership code number is : <h1>" + user.CodeNr + "</h1> </p>");
+
                 // return RedirectToAction(nameof(SuccessRegistration));
-                
+
                 //// var link = Url.Action("VerifyEmail", "Auth", new {userEmail = user.Email });
                 //var link = _linkGenerator.GetPathByAction(HttpContext, "VerifEmail", "Auth", new {userId = user.Id, code });
                 //await _emailService.SendAsync("takang33@yahoo.com", "Email Verify", link, true);
                 //var conf = _confirmResp.ConfirmResponse(true, "An Email has been sent to you");
                 //return Ok(conf);
 
-                var conf = _confirmResp.ConfirmResponse(true, "Almost there, an email has been sent to you.");
-                // await _mailService.SendEmailAsync("takang33@yahoo.de", "Confirm Your Registration", "<h1>Confirm Your Registration</h1><p>Hello, Please Confirm your Registration with Elite Force.</p>");
+                var conf = _confirmResp.ConfirmResponse(true, "Almost there, wait for the admin to activate your account.");
+                // await _mailService.SendEmailAsync("takang33@yahoo.de", "Confirm Your Registration", 
+                // "<h1>Confirm Your Registration</h1><p>Hello, Please Confirm your Registration with Elite Force.</p>");
                 // return Ok(conf);
+                _logger.LogInformation("Registration went through but pending email confirmation");
                 return Ok(conf);
             }
             else
@@ -158,6 +173,7 @@ namespace EliteForce.Controllers
                 //    ModelState.AddModelError(string.Empty, error.Description);
                 //}
                 var conf = _confirmResp.ConfirmResponse(false, "Sorry registration failed.");
+                _logger.LogError("Sorry, registration failed.");
                 return BadRequest(conf);
             }
 
@@ -190,6 +206,7 @@ namespace EliteForce.Controllers
             if (user == null)
             {
                var conf = _confirmResp.ConfirmResponse(false, "Credentials failed");
+                _logger.LogError("Login credentials failed for " + userForLogin.UserEmail );
                 return Unauthorized(conf);
             }
             var orignal_userName = user.UserName;
@@ -199,6 +216,7 @@ namespace EliteForce.Controllers
             if (!signInResp.Succeeded)
             {
                 var conf = _confirmResp.ConfirmResponse(false, "Authentication failed");
+                _logger.LogError("Authentication failed for " + user.FirstName + " with the email: " + userForLogin.UserEmail);
                 return Unauthorized(conf);
             }
             // Put the UserName back as it was.
@@ -208,6 +226,7 @@ namespace EliteForce.Controllers
             if (user.Status == "INACTIVE")
             {
                 var conf = _confirmResp.ConfirmResponse(false, "Not authorized");
+                _logger.LogError("User with first name " + user.FirstName + " and with the email: " + userForLogin.UserEmail + ", not active.");
                 return Unauthorized(conf);
             }
 
@@ -229,7 +248,9 @@ namespace EliteForce.Controllers
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(storedClaims),
-                Expires = DateTime.Now.AddDays(1), // Expires in a day's time // or .. .AddHours(2) or ... AddDays(1)
+                NotBefore = DateTime.Now,
+                Expires = DateTime.Now.AddHours(2),
+                // Expires = DateTime.Now.AddDays(1), // Expires in a day's time // or .. .AddHours(2) or ... AddDays(1)
                 SigningCredentials = creds
             };
 
@@ -270,6 +291,7 @@ namespace EliteForce.Controllers
             {
                 //var message = "Email " + email + " is already in use.";
                 var message = $"Email {email} is already in use.";
+                _logger.LogError("User tried registering with email: " + email + "email already in use.");
                 conf = _confirmResp.ConfirmResponse(false, message);
                 return Ok(conf);
             }

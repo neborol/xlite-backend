@@ -4,6 +4,7 @@ using EliteForce.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.Extensions.Logging;
 using SQLitePCL;
 using System;
 using System.Collections.Generic;
@@ -16,10 +17,13 @@ namespace EliteForce.Data
     public class FaqRepository : IFaqRepository
     {
         private readonly EliteDataContext _context;
+        private readonly ILogger _logger;
+        
 
-        public FaqRepository(EliteDataContext context)
+        public FaqRepository(EliteDataContext context, ILogger<FaqRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // public async Task<EntityEntry<Faq>> AddAnFaq(FaqPostDto entity)

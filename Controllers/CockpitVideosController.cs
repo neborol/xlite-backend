@@ -4,6 +4,7 @@ using EliteForce.Data;
 using EliteForce.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,18 @@ namespace EliteForce.Controllers
     {
         private readonly IVideosRepository _videoRepo;
         private readonly IConfirmResp _confirm;
-        public CockpitVideosController(IVideosRepository videoRepo, IConfirmResp confirm)
+        private readonly ILogger _logger;
+        
+
+        public CockpitVideosController(
+            IVideosRepository videoRepo, 
+            IConfirmResp confirm,
+            ILogger<CockpitVideosController> logger
+            )
         {
             _videoRepo = videoRepo;
             _confirm = confirm;
+            _logger = logger;
         }
 
         [HttpPost("addAVideoItem")]
@@ -29,6 +38,7 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cvideos controller,  add video item model not good");
                 return BadRequest(ModelState);
             }
 
@@ -36,6 +46,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cvideos controller, add a video item retuned 0 from repo");
                 return BadRequest("The video item was not created.");
             }
             var confirm = _confirm.ConfirmResponse(true, "A Video item was created successfully.");
@@ -49,6 +60,7 @@ namespace EliteForce.Controllers
         {
             if (!ModelState.IsValid)
             {
+                _logger.LogError("In cvideo controller,  update video model invalid");
                 return BadRequest(ModelState);
             }
 
@@ -56,6 +68,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cvideo controller,  update video received 0 from repo");
                 return BadRequest("The video item was not updated.");
             }
             var confirm = _confirm.ConfirmResponse(true, "A Video item was updated successfully.");
@@ -69,6 +82,7 @@ namespace EliteForce.Controllers
         {
             if (videoId == 0)
             {
+                _logger.LogError("In cvideos controller,  delete a video missing the id");
                 return BadRequest("Video id must be provided.");
             }
 
@@ -76,6 +90,7 @@ namespace EliteForce.Controllers
 
             if (num < 1)
             {
+                _logger.LogError("In cvideo controller,  delete video returned 0 from repo");
                 return BadRequest("The video item was not deleted.");
             }
             var confirm = _confirm.ConfirmResponse(true, "A Video item was deleted successfully.");

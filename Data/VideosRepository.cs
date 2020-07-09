@@ -6,15 +6,20 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Data
 {
     public class VideosRepository : IVideosRepository
     {
         private readonly EliteDataContext _context;
-        public VideosRepository(EliteDataContext context)
+        private readonly ILogger _logger;
+        
+
+        public VideosRepository(EliteDataContext context, ILogger<VideosRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task<int> AddAVideoItem(MissionVideoPostDto videoDataObj)

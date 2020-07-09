@@ -17,17 +17,21 @@ namespace EliteForce.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration iConfig)
+
+        public HomeController(
+            ILogger<HomeController> logger, 
+            IConfiguration iConfig
+            )
         {
             _logger = logger;
-            this._configuration = iConfig;
+            _configuration = iConfig;
         }
 
         [HttpGet]
         public JsonResult Get()
         {
-            _logger.LogDebug("Something bad might occure.");
-            return new JsonResult(new { thing = "Roland for " + _configuration["Thing"] });
+            _logger.LogDebug("");
+            return new JsonResult(new { test = "Home Testing" });
         }
 
     }

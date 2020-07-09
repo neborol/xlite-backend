@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Data
 {
@@ -12,10 +13,18 @@ namespace EliteForce.Data
     {
         private readonly EliteDataContext _context;
         private UserManager<User> _userManager;
-        public FinancesRepository(EliteDataContext context, UserManager<User> userManager)
+        private readonly ILogger _logger;
+        
+
+        public FinancesRepository(
+            EliteDataContext context, 
+            UserManager<User> userManager,
+            ILogger<FinancesRepository> logger
+         )
         {
             _context = context;
             _userManager = userManager;
+            _logger = logger;
         }
 
 

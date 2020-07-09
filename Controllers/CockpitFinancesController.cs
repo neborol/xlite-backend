@@ -9,6 +9,7 @@ using EliteForce.Data;
 using EliteForce.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using EliteForce.AuthorizationRequirements;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Controllers
 {
@@ -17,9 +18,12 @@ namespace EliteForce.Controllers
     public class CockpitFinancesController : ControllerBase
     {
         IFinancesRepository _financesRepo;
-        public CockpitFinancesController(IFinancesRepository financesRepo)
+        private readonly ILogger _logger;
+        
+        public CockpitFinancesController(IFinancesRepository financesRepo, ILogger<CockpitFinancesController> logger)
         {
             _financesRepo = financesRepo;
+            _logger = logger;
         }
 
         [HttpGet("getSubscriptions/{userId}")]
@@ -28,6 +32,7 @@ namespace EliteForce.Controllers
         {
             if (string.IsNullOrEmpty(userId))
             {
+                _logger.LogInformation("In finances controller,  no userid received");
                 return BadRequest("The user id is not received.");
             }
 

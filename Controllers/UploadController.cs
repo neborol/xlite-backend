@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using EliteForce.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace EliteForce.Controllers
 {
@@ -14,37 +15,13 @@ namespace EliteForce.Controllers
     [ApiController]
     public class UploadController : ControllerBase
     {
+        private readonly ILogger _logger;
+        
 
-
-        //[HttpPost]
-        //public async Task<IActionResult> UploadOne([FromBody] NewsImage photoModel)
-        //{
-        //    // var photoEntity = _mapper.Map<MissionPhoto>(photoModel);
-        //    // Validations:
-        //    if (photoModel.UploadedImage == null) return BadRequest("Null file");
-        //    if (photoModel.UploadedImage.Length == 0) return BadRequest("Empty file");
-        //    if (photoModel.UploadedImage.Length > MAX_BYTES) return BadRequest("Max file size exceeded"); // MAX_BYTES could be stored in a configuraton file
-        //    if (ACCEPTED_FILE_TYPES.Any(s => s == Path.GetExtension(photoModel.UploadedImage.FileName).ToLower())) return BadRequest("Invalid file type");
-
-
-        //    if (ModelState.IsValid)
-        //    {
-        //        string uniqueFileName = UploadedFile(photoModel.UploadedImage);
-        //        MissionPhoto photo = new MissionPhoto
-        //        {
-        //            UniquePhotoName = uniqueFileName,
-        //            UploadDate = DateTime.Now,
-        //            UploadedBy = photoModel.UploadedBy
-        //        };
-
-        //        await _imageRepo.Add(photo);
-        //    }
-
-        //    return Ok("Photo-Upload-Success");
-        //}
-
-
-
+        public UploadController(ILogger<UploadController> logger)
+        {
+            _logger = logger;
+        }
 
         // POST: api/Upload
         [HttpPost("fileUpload/{topFolder}/{innerFolder}"), DisableRequestSizeLimit]

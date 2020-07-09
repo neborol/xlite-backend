@@ -1,5 +1,6 @@
 ﻿using EliteForce.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,13 @@ namespace EliteForce.Data
     {
         private readonly EliteDataContext _context;
         private Random _random = new Random();
-        public AuthRepository(EliteDataContext context)
+        private readonly ILogger _logger;
+        
+
+        public AuthRepository(EliteDataContext context, ILogger<AuthRepository> logger)
         {
             _context = context;
+            _logger = logger;
         }
         //public async Task<User> Login(string userEmail, string password)
         //{

@@ -3,6 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
+      //"applicationUrl": "http://www.be.scefhelp.org",
       "applicationUrl": "http://localhost:5001",
       "sslPort": 0
     }
@@ -12,17 +13,21 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
+        //"ASPNETCORE_ENVIRONMENT": "Production"
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "nativeDebugging": false
     },
     "EliteForce": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
+        //"ASPNETCORE_ENVIRONMENT": "Production"
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "sqlDebugging": true,
-      "nativeDebugging": false,
+      "nativeDebugging": true,
+      //"applicationUrl": "http://www.be.scefhelp.org"
       "applicationUrl": "http://localhost:5001"
     }
   }

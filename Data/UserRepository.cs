@@ -116,6 +116,24 @@ namespace EliteForce.Data
             return updateRes;
         }
 
+
+        //public async Task<int> changePassword( )
+        //{
+        //    var faq = await _context.FaqItems.FirstOrDefaultAsync(f => f.FaqId == changedFaq.FaqId);
+        //    if (faq != null)
+        //    {
+        //        faq.FaqAnswer = changedFaq.FaqAnswer;
+        //        faq.FaqQuestion = changedFaq.FaqQuestion;
+
+        //        _context.FaqItems.Update(faq);
+        //        var numEdited = await _context.SaveChangesAsync();
+        //        return numEdited;
+        //    }
+
+        //    return 0;
+
+        //}
+
         public Task<bool> SaveAll()
         {
             throw new NotImplementedException();

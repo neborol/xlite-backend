@@ -24,7 +24,7 @@ namespace EliteForce.Services
         {
             var apiKey = _configuration["SendGridData:Key"];
             var client = new SendGridClient(apiKey);
-            var from = new EmailAddress("neboroland@gmail.com", "Elite Force");
+            var from = new EmailAddress(_configuration["Email:MailKitOptions:SenderEmail"], _configuration["Email:MailKitOptions:SenderName"]);
             var to = new EmailAddress(toEmail);
             var msg = MailHelper.CreateSingleEmail(from, to, subject, content, content);
             var response = await client.SendEmailAsync(msg);

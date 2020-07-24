@@ -198,3 +198,307 @@
 2020-07-09 01:33:32.0485 Info Loading assembly: NLog.Web.AspNetCore
 2020-07-09 01:33:32.1229 Info Adding target FileTarget(Name=fileTarget)
 2020-07-09 01:33:32.1637 Info Found 14 configuration items
+2020-07-17 07:26:28.5561 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-17 07:26:28.5858 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-17 07:26:28.5912 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-17 07:26:28.5912 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-17 07:26:28.5912 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-17 07:26:28.5912 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-17 07:26:28.6725 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-17 07:26:28.6725 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-17 07:26:28.6725 Info Message Template Auto Format enabled
+2020-07-17 07:26:28.6725 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-17 07:26:28.7624 Info Adding target FileTarget(Name=fileTarget)
+2020-07-17 07:26:28.7890 Info Found 14 configuration items
+2020-07-17 07:26:31.9995 Info AppDomain Shutting down. Logger closing...
+2020-07-17 07:26:32.0123 Info Logger has been shut down.
+2020-07-17 12:57:19.8947 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-17 12:57:19.9157 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-17 12:57:19.9157 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-17 12:57:19.9157 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-17 12:57:19.9157 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-17 12:57:19.9157 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-17 12:57:19.9157 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-17 12:57:19.9157 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-17 12:57:19.9157 Info Message Template Auto Format enabled
+2020-07-17 12:57:19.9157 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-17 12:57:19.9655 Info Adding target FileTarget(Name=fileTarget)
+2020-07-17 12:57:19.9911 Info Found 14 configuration items
+2020-07-17 12:57:20.4855 Info AppDomain Shutting down. Logger closing...
+2020-07-17 12:57:20.4969 Info Logger has been shut down.
+2020-07-17 13:01:51.5442 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-17 13:01:51.5442 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-17 13:01:51.5442 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-17 13:01:51.5442 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-17 13:01:51.5442 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-17 13:01:51.5442 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-17 13:01:51.5570 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-17 13:01:51.5570 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-17 13:01:51.5570 Info Message Template Auto Format enabled
+2020-07-17 13:01:51.5570 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-17 13:01:51.6066 Info Adding target FileTarget(Name=fileTarget)
+2020-07-17 13:01:51.6323 Info Found 14 configuration items
+2020-07-17 13:01:52.1267 Info AppDomain Shutting down. Logger closing...
+2020-07-17 13:01:52.1387 Info Logger has been shut down.
+2020-07-20 15:31:39.0451 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-20 15:31:39.4599 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-20 15:31:39.5459 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-20 15:31:39.5459 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-20 15:31:39.5576 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-20 15:31:39.5576 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-20 15:31:39.9597 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-20 15:31:39.9677 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-20 15:31:39.9677 Info Message Template Auto Format enabled
+2020-07-20 15:31:39.9840 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-20 15:31:40.2347 Info Adding target FileTarget(Name=fileTarget)
+2020-07-20 15:31:40.2788 Info Found 14 configuration items
+2020-07-21 03:15:17.6330 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:15:17.6517 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:15:17.6676 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 03:15:17.6783 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 03:15:17.6783 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:15:17.6889 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:15:17.7869 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 03:15:17.7869 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 03:15:17.8009 Info Message Template Auto Format enabled
+2020-07-21 03:15:17.8009 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 03:15:17.8662 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 03:15:17.8977 Info Found 14 configuration items
+2020-07-21 03:20:32.5281 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:20:32.5495 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:20:32.5687 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 03:20:32.5687 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 03:20:32.5839 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:20:32.5839 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:20:32.6007 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 03:20:32.6007 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 03:20:32.6154 Info Message Template Auto Format enabled
+2020-07-21 03:20:32.6154 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 03:20:32.6809 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 03:20:32.7151 Info Found 14 configuration items
+2020-07-21 03:23:51.7170 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:23:51.7368 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:23:51.7539 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 03:23:51.7539 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 03:23:51.7715 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:23:51.7715 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:23:51.7917 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 03:23:51.7988 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 03:23:51.7988 Info Message Template Auto Format enabled
+2020-07-21 03:23:51.8154 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 03:23:51.8776 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 03:23:51.9124 Info Found 14 configuration items
+2020-07-21 03:29:36.1152 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:29:36.1521 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:29:36.1694 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 03:29:36.1768 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 03:29:36.1768 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:29:36.1878 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:29:36.1878 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 03:29:36.2081 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 03:29:36.2081 Info Message Template Auto Format enabled
+2020-07-21 03:29:36.2241 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 03:29:36.2854 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 03:29:36.3171 Info Found 14 configuration items
+2020-07-21 03:41:57.0162 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:41:57.0345 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:41:57.0499 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 03:41:57.0499 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 03:41:57.0499 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:41:57.0677 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:41:57.0805 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 03:41:57.0805 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 03:41:57.0946 Info Message Template Auto Format enabled
+2020-07-21 03:41:57.0946 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 03:41:57.1606 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 03:41:57.1926 Info Found 14 configuration items
+2020-07-21 03:48:26.9232 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:48:26.9630 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 03:48:26.9789 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 03:48:26.9866 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 03:48:26.9866 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:48:26.9866 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 03:48:27.0130 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 03:48:27.0201 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 03:48:27.0201 Info Message Template Auto Format enabled
+2020-07-21 03:48:27.0365 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 03:48:27.0938 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 03:48:27.1268 Info Found 14 configuration items
+2020-07-21 04:23:58.3993 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 04:23:58.4306 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 04:23:58.4476 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 04:23:58.4563 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 04:23:58.4563 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 04:23:58.4697 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 04:23:58.4697 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 04:23:58.4897 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 04:23:58.4897 Info Message Template Auto Format enabled
+2020-07-21 04:23:58.5059 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 04:23:58.5725 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 04:23:58.6136 Info Found 14 configuration items
+2020-07-21 05:46:28.7051 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 05:46:28.7305 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 05:46:28.7511 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 05:46:28.7511 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 05:46:28.7677 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 05:46:28.7677 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 05:46:28.8186 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 05:46:28.8186 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 05:46:28.8331 Info Message Template Auto Format enabled
+2020-07-21 05:46:28.8331 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 05:46:28.9020 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 05:46:28.9374 Info Found 14 configuration items
+2020-07-21 05:48:53.4250 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 05:48:53.4442 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 05:48:53.4604 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 05:48:53.4708 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 05:48:53.4708 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 05:48:53.4708 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 05:48:53.4959 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 05:48:53.5051 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 05:48:53.5163 Info Message Template Auto Format enabled
+2020-07-21 05:48:53.5163 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 05:48:53.5937 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 05:48:53.6286 Info Found 14 configuration items
+2020-07-21 05:50:54.5341 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 05:50:54.5554 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 05:50:54.5706 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 05:50:54.5789 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 05:50:54.5789 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 05:50:54.5789 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 05:50:54.6011 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 05:50:54.6011 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 05:50:54.6145 Info Message Template Auto Format enabled
+2020-07-21 05:50:54.6145 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 05:50:54.6815 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 05:50:54.7203 Info Found 14 configuration items
+2020-07-21 06:04:32.2500 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 06:04:32.2552 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 06:04:32.2552 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 06:04:32.2552 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 06:04:32.2552 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 06:04:32.2552 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 06:04:32.2552 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 06:04:32.2670 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 06:04:32.2670 Info Message Template Auto Format enabled
+2020-07-21 06:04:32.2670 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 06:04:32.3179 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 06:04:32.3500 Info Found 14 configuration items
+2020-07-21 06:04:32.8656 Info AppDomain Shutting down. Logger closing...
+2020-07-21 06:04:32.8809 Info Logger has been shut down.
+2020-07-21 06:11:21.7897 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 06:11:21.7897 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 06:11:21.8026 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 06:11:21.8026 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 06:11:21.8026 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 06:11:21.8026 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 06:11:21.8026 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 06:11:21.8026 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 06:11:21.8026 Info Message Template Auto Format enabled
+2020-07-21 06:11:21.8158 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 06:11:21.8665 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 06:11:21.9007 Info Found 14 configuration items
+2020-07-21 06:11:22.4902 Info AppDomain Shutting down. Logger closing...
+2020-07-21 06:11:22.5028 Info Logger has been shut down.
+2020-07-21 06:49:15.3781 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 06:49:15.3781 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-21 06:49:15.3781 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-21 06:49:15.3781 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-21 06:49:15.3781 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 06:49:15.3781 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-21 06:49:15.3919 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-21 06:49:15.3919 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-21 06:49:15.3919 Info Message Template Auto Format enabled
+2020-07-21 06:49:15.3919 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-21 06:49:15.4371 Info Adding target FileTarget(Name=fileTarget)
+2020-07-21 06:49:15.4652 Info Found 14 configuration items
+2020-07-21 06:49:16.0145 Info AppDomain Shutting down. Logger closing...
+2020-07-21 06:49:16.0265 Info Logger has been shut down.
+2020-07-22 01:26:00.0494 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-22 01:26:00.2106 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-22 01:26:00.2425 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-22 01:26:00.2533 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-22 01:26:00.2533 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-22 01:26:00.2533 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-22 01:26:00.3329 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-22 01:26:00.3329 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-22 01:26:00.3468 Info Message Template Auto Format enabled
+2020-07-22 01:26:00.3468 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-22 01:26:00.5072 Info Adding target FileTarget(Name=fileTarget)
+2020-07-22 01:26:00.5710 Info Found 14 configuration items
+2020-07-22 01:41:33.4858 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-22 01:41:33.4858 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-22 01:41:33.4858 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-22 01:41:33.4858 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-22 01:41:33.4858 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-22 01:41:33.5003 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-22 01:41:33.5003 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-22 01:41:33.5003 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-22 01:41:33.5003 Info Message Template Auto Format enabled
+2020-07-22 01:41:33.5003 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-22 01:41:33.5590 Info Adding target FileTarget(Name=fileTarget)
+2020-07-22 01:41:33.5954 Info Found 14 configuration items
+2020-07-22 01:41:34.3542 Info AppDomain Shutting down. Logger closing...
+2020-07-22 01:41:34.3675 Info Logger has been shut down.
+2020-07-23 02:13:55.2844 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 02:13:55.4286 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 02:13:55.4616 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-23 02:13:55.4704 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-23 02:13:55.4704 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 02:13:55.4704 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 02:13:55.5572 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-23 02:13:55.5641 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-23 02:13:55.5641 Info Message Template Auto Format enabled
+2020-07-23 02:13:55.5798 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-23 02:13:55.7132 Info Adding target FileTarget(Name=fileTarget)
+2020-07-23 02:13:55.7523 Info Found 14 configuration items
+2020-07-23 02:22:08.3507 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 02:22:08.3696 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 02:22:08.3859 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-23 02:22:08.3934 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-23 02:22:08.3934 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 02:22:08.3934 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 02:22:08.4170 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-23 02:22:08.4239 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-23 02:22:08.4239 Info Message Template Auto Format enabled
+2020-07-23 02:22:08.4404 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-23 02:22:08.5013 Info Adding target FileTarget(Name=fileTarget)
+2020-07-23 02:22:08.5365 Info Found 14 configuration items
+2020-07-23 03:06:41.7109 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 03:06:41.7531 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 03:06:41.7749 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-23 03:06:41.7842 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-23 03:06:41.7842 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 03:06:41.8006 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 03:06:41.8162 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-23 03:06:41.8162 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-23 03:06:41.8335 Info Message Template Auto Format enabled
+2020-07-23 03:06:41.8335 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-23 03:06:41.9112 Info Adding target FileTarget(Name=fileTarget)
+2020-07-23 03:06:41.9431 Info Found 14 configuration items
+2020-07-23 03:10:55.4183 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 03:10:55.4684 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 03:10:55.4947 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-23 03:10:55.5044 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-23 03:10:55.5044 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 03:10:55.5196 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 03:10:55.5354 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-23 03:10:55.5354 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-23 03:10:55.5497 Info Message Template Auto Format enabled
+2020-07-23 03:10:55.5497 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-23 03:10:55.6166 Info Adding target FileTarget(Name=fileTarget)
+2020-07-23 03:10:55.6484 Info Found 14 configuration items
+2020-07-23 03:15:57.8365 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 03:15:57.8365 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll
+2020-07-23 03:15:57.8457 Info NLog.Extensions.Logging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 1.6.2.1321. Product version: 1.6.2.
+2020-07-23 03:15:57.8457 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Extensions.Logging.dll succeeded!
+2020-07-23 03:15:57.8457 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 03:15:57.8457 Info Loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll
+2020-07-23 03:15:57.8457 Info NLog.Web.AspNetCore, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.9.2.1619. Product version: 4.9.2.
+2020-07-23 03:15:57.8457 Info Auto loading assembly file: D:\Projects\EliteForce\bin\Debug\netcoreapp3.1\NLog.Web.AspNetCore.dll succeeded!
+2020-07-23 03:15:57.8457 Info Message Template Auto Format enabled
+2020-07-23 03:15:57.8457 Info Loading assembly: NLog.Web.AspNetCore
+2020-07-23 03:15:57.9075 Info Adding target FileTarget(Name=fileTarget)
+2020-07-23 03:15:57.9350 Info Found 14 configuration items
+2020-07-23 03:15:58.6108 Info AppDomain Shutting down. Logger closing...
+2020-07-23 03:15:58.6108 Info Logger has been shut down.

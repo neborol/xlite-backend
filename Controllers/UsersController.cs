@@ -17,6 +17,8 @@ using EliteForce.Dtos;
 using AutoMapper;
 using EliteForce.AppWideHelpers;
 using Microsoft.Extensions.Logging;
+using EliteForce.Services;
+using Microsoft.Extensions.Configuration;
 
 namespace EliteForce.Controllers
 {
@@ -31,8 +33,7 @@ namespace EliteForce.Controllers
         private readonly IMapper _mapper;
         private readonly IConfirmResp _confirmResp;
         private readonly ILogger _logger;
-        
-
+        private readonly IMailService _mailService;
 
         public UsersController(
             IUserRepository userRepo, 
@@ -41,7 +42,8 @@ namespace EliteForce.Controllers
             UserManager<User> userManager,
             IMapper mapper,
             IConfirmResp confirmResponse,
-            ILogger<UsersController> logger
+            ILogger<UsersController> logger,
+            IMailService mailService
         )
         {
             _userRepo = userRepo;
@@ -51,6 +53,7 @@ namespace EliteForce.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _confirmResp = confirmResponse;
             _logger = logger;
+            _mailService = mailService;
         }
 
 
@@ -110,23 +113,32 @@ namespace EliteForce.Controllers
         }
 
 
-        //// GET: api/Users/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<User>> GetUser(string id)
+
+        //[HttpPut("fromemail")]
+        //[Authorize(Policy = Policies.SuperAdmin)]
+        //public async Task<string> FromEmail(string email)
         //{
-        //    //var user = await _userRepo.GetSingleUser(id);
-        //    //if (user == null)
-        //    //{
-        //    //    return NotFound();
-        //    //}
-        //    //return Ok(user);
-        //    return Ok();
+        //    return "";
         //}
 
-        // PUT: api/Users/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
+
+            //// GET: api/Users/5
+            //[HttpGet("{id}")]
+            //public async Task<ActionResult<User>> GetUser(string id)
+            //{
+            //    //var user = await _userRepo.GetSingleUser(id);
+            //    //if (user == null)
+            //    //{
+            //    //    return NotFound();
+            //    //}
+            //    //return Ok(user);
+            //    return Ok();
+            //}
+
+            // PUT: api/Users/5
+            // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+            // more details see https://aka.ms/RazorPagesCRUD.
+            [HttpPut("{id}")]
         [Authorize(Policy = Policies.Pilot)]
         public async Task<IActionResult> PutUser(string id, User user)
         {

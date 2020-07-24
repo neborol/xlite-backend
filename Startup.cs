@@ -73,7 +73,7 @@ namespace EliteForce
                 options.Password.RequiredLength = 8;
                 options.Password.RequiredUniqueChars = 1;
 
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
                 options.Lockout.MaxFailedAccessAttempts = 3;
                 options.Lockout.AllowedForNewUsers = true;
 
@@ -130,6 +130,9 @@ namespace EliteForce
             });
 
 
+            // Configure the DataProtectionTokenProvider that is responsible for generating email, phone and other data verification tokens
+            services.Configure<DataProtectionTokenProviderOptions>(o => o.TokenLifespan = TimeSpan.FromHours(5));
+
             // In production, the Angular files will be served from this directory
             //services.AddSpaStaticFiles(configuration =>
             //{
@@ -155,6 +158,7 @@ namespace EliteForce
             var mailKitOptions = _configuration.GetSection("Email").Get<MailKitOptions>();
             services.AddMailKit(config => config.UseMailKit(mailKitOptions));
 
+            
 
             services.AddAuthorization(config =>
             {
